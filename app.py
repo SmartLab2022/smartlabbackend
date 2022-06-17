@@ -20,7 +20,9 @@ CORS(app)
 #  'host': 'mongodb+srv://SmartLabsDB:SmartLab@123@cluster0.lodkwlx.mongodb.net/?retryWrites=true&w=majority',
 #    'port': 27017
 #}
-DB_URI='mongodb+srv://SmartLabsDB:SmartLab@123@cluster0.lodkwlx.mongodb.net/?retryWrites=true&w=majority'
+import urllib 
+
+DB_URI='mongodb+srv://SmartLabsDB:'+urllib.parse.quote("SmartLab@123")+'@cluster0.lodkwlx.mongodb.net/?retryWrites=true&w=majority'
 app.config['MONGODB_HOST'] =DB_URI
 
 db = MongoEngine()
@@ -131,7 +133,8 @@ def signUp():
             "status":0,
             }
     return jsonify(msg)
-   
+  
+
 @app.route('/home' , methods=['GET'])
 def home():
     msg='Hello World'
