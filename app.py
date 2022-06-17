@@ -132,7 +132,7 @@ def signUp():
             }
     return jsonify(msg)
    
- @app.route('/home' , methods=['GET'])
+@app.route('/home' , methods=['GET'])
 def home():
     msg='Hello World'
     return jsonify(msg)
